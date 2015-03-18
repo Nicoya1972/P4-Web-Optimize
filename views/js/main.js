@@ -455,7 +455,7 @@ var resizePizzas = function(size) {
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
-  }
+  } 
 
   changePizzaSizes(size);
 
@@ -503,8 +503,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+  for (var i = 0, max=items.length; i < max; i++) {
+    var phase = ((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -517,7 +517,7 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-
+  
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
