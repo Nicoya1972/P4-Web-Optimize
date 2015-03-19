@@ -503,7 +503,6 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll.('.mover');
-  console.log("New call to updatePositions");
   for (var i = 0, max=items.length; i < max; i++) {
     var phase = ((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
