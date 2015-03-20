@@ -504,7 +504,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.getElementsByClass('.mover');
+  var items = document.getElementsByClassName('.mover');
   
     
   for (var i = 0; i < items.length; i++) {
