@@ -508,10 +508,10 @@ function updatePositions() {
 
   var items = document.querySelectorAll(".mover");
   var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
-  for (var i = 0; i < items.length; i++) {
+  for (var i = items.length; i--) {
     var phase = Math.sin(top + (i % 5));
-    var posLeft = -items[i].basicLeft + 1000 * phase + 'px';
-    items[i].style.transform = "translateX("+posLeft+") translateZ (0)";
+    var left = -items[i].basicLeft + 1000 * phase + 'px';
+    items[i].style.transform = "translateX("+left+") translateZ(0)";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -533,12 +533,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //decreased # of pizzas displayed http://www.codecademy.com/glossary/javascript#loops
-  for (var i = 50; i--;) {
+  for (var i = 30; i--;) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza_min.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
