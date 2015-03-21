@@ -507,9 +507,9 @@ function updatePositions() {
 //moved var items and var scrollTop from loop.
 
   var items = document.querySelectorAll(".mover");
-  var scroll = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
+  var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scroll + (i % 5));
+    var phase = Math.sin(top + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -524,8 +524,9 @@ function updatePositions() {
 }
   
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
-
+window.addEventListener('scroll', function() {
+window.requestAnimationFrame(updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
+});
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
