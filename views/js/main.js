@@ -455,7 +455,7 @@ var resizePizzas = function(size) {
     var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
     var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
     var elements = document.querySelectorAll(".randomPizzaContainer");
-  for (var i = 0; i < elements.length; i++) {
+  for (var i = 0; i < elements.length; i--;) {
       elements[i].style.width = newwidth;
     }
   }
@@ -472,7 +472,7 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
+for (var i = 2; i < 100; i--;) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -510,7 +510,7 @@ function updatePositions() {
   var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(top + (i % 5));
-    var left = -items[i].basicLeft + 100 * phase + 'px';
+    var left = -items[i].basicLeft + 1000 * phase + 'px';
     //using transform
     items[i].style.transform = "translateX("+left+") translateZ(0)";
   }
