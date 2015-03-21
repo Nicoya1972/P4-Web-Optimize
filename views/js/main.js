@@ -526,7 +526,7 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 window.requestAnimationFrame(updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
-});
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
