@@ -452,8 +452,8 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     //moved dx and newwidth out of loop created new var to simplify the for loop.
-    var dx = determineDx(document.querySelector(".randomPizzaContainer")[i], size);
-    var newwidth = (document.querySelector(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
+    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
     var elements = document.querySelectorAll(".randomPizzaContainer");
   for (var i = 0; i < elements.length; i++) {
       elements[i].style.width = newwidth;
@@ -506,8 +506,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 //moved var items and var scrollTop from loop.
 
-  var items = document.getElementsByClassName(".mover");
-  var scroll = (document.body.scrollTop / 1250) //it seems to me that this does not need to be in the loop.
+  var items = document.querySelectorAll(".mover");
+  var scroll = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(scroll + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
