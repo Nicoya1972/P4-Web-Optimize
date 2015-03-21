@@ -524,7 +524,7 @@ function updatePositions() {
 }
   
 // runs updatePositions on scroll
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', updatePositions);
 window.requestAnimationFrame(updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
 });
 // Generates the sliding pizzas when the page loads.
@@ -532,7 +532,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //decreased # of pizzas displayed http://www.codecademy.com/glossary/javascript#loops
-  for (var i = 50; i >= 1; i--) {
+  for (var i = 50; i--;) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
