@@ -510,7 +510,7 @@ function updatePositions() {
   var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(top + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.left =  items[i].basicLeft + 1000 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function() {
   for (var i = 50; i--;) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
+    elem.src = "images/pizza_min.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
