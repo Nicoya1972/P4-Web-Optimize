@@ -509,11 +509,9 @@ function updatePositions() {
   var items = document.querySelectorAll(".mover");
   var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(top + (i % 5));
-    var left = -items[i].basicLeft + 1000 * phase + 'px';
-    //using transform
-    items[i].style.transform = "translateX("+left+") translateZ(0)";
-  }
+    var phase = Math.sin(top + (i % 5) *100);
+    items[i].style.transform = 'translateX(' + phase + 'px)';
+  } 
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
