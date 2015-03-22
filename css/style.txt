@@ -281,10 +281,9 @@ function getNoun(y) {
       return scifi_default;
   } 
 }
-//change noise to noisy.  there is no "noise" in adj function.
-//also added several missing nouns.
-var adjectives = ["dark", "color", "whimsical", "shiny", "noisy", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
-var nouns = ["animals", "profession", "fantasy", "everyday", "music", "horror", "gross", "everyday", "jewelry", "places", "scifi", "scifi_default"];                        // types of nouns for pizza titles
+
+var adjectives = ["dark", "color", "whimsical", "shiny", "noise", "apocalyptic", "insulting", "praise", "scientific"];  // types of adjectives for pizza titles
+var nouns = ["animals", "everyday", "fantasy", "gross", "horror", "jewelry", "places", "scifi"];                        // types of nouns for pizza titles
 
 // Generates random numbers for getAdj and getNoun functions and returns a new pizza name
 function generator(adj, noun) {
@@ -409,14 +408,18 @@ var resizePizzas = function(size) {
       case "1":
         document.querySelector("#pizzaSize").innerHTML = "Small";
         return;
+        break;
       case "2":
         document.querySelector("#pizzaSize").innerHTML = "Medium";
         return;
+        break;
       case "3":
         document.querySelector("#pizzaSize").innerHTML = "Large";
         return;
+        break;
       default:
         console.log("bug in changeSliderLabel");
+        break;
     }
   }
 
@@ -434,12 +437,16 @@ var resizePizzas = function(size) {
       switch(size) {
         case "1":
           return 0.25;
+          break;
         case "2":
           return 0.3333;
+          break;
         case "3":
           return 0.5;
+          break;
         default:
           console.log("bug in sizeSwitcher");
+          break;
       }
     }
 
@@ -451,16 +458,14 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    //moved dx and newwidth out of loop created new var to simplify the for loop.
-    var dx = determineDx(document.querySelector(".randomPizzaContainer"), size);
-    var newwidth = (document.querySelector(".randomPizzaContainer").offsetWidth + dx) + 'px';
-    var elements = document.querySelectorAll(".randomPizzaContainer");
-  for (var i = 0; i < elements.length; i++) {
-      elements[i].style.width = newwidth;
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
-  changePizzaSizes(size);     
+  changePizzaSizes(size);
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -504,15 +509,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-//moved var items and var scrollTop from loop.
 
-  var items = document.querySelectorAll(".mover");
-  var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
+  var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(top + (i % 5));
-    var left = -items[i].basicLeft + 1000 * phase + 'px';
-    //using transform
-    items[i].style.transform = "translateX("+left+") translateZ(0)";
+    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -524,20 +525,20 @@ function updatePositions() {
     logAverageFrame(timesToUpdatePosition);
   }
 }
-  
+
 // runs updatePositions on scroll
-window.addEventListener('scroll', function() {
-window.requestAnimationFrame(updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
-});
+window.addEventListener('scroll', updatePositions);
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  //decreased # of pizzas displayed http://www.codecademy.com/glossary/javascript#loops
-  for (var i = 30; i--;) {
+  for (var i = 0; i < 200; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "images/pizza_min.png";
+    elem.src = "images/pizza.png";
+    elem.style.height = "100px";
+    elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
