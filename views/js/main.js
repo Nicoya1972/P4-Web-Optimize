@@ -510,7 +510,7 @@ function updatePositions() {
   var top = (document.body.scrollTop / 1250); //it seems to me that this does not need to be in the loop.
   for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(top + (i % 5) * 100);
-    items[i].style.transform = 'translateX( phase + 'px') translateZ(0)';
+    items[i].style.transform = 'translateX( phase + 'px');
   } 
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
