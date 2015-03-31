@@ -526,7 +526,7 @@ function updatePositions() {
   var currentScrollY = latestKnownScrollY;
  
   for (var i = items.length; i--;) {
-    var phase = Math.sin(currentScrollY /1250) + (i % 5));
+    var phase = Math.sin((currentScrollY / 1250) + (i % 5));
     items[i].style.transform = "translateX("+ 100 * phase +"px");
   }
 
