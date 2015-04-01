@@ -500,35 +500,17 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-var items = [],
-latestKnownScrollY = 0,
-  ticking = false;
 
-function onScroll() {
-  latestKnownScrollY = window.scrollY;
-  requestTick();
-}
-
-function requestTick() {
-  if(!ticking) {
-    requestAnimationFrame(updatePositions);
-  }
-  ticking = true;
-}
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
-  ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
 
-if (items.length === 0) {
-    items = document.getElementsByClassName('mover');
-  }
-  
-  var currentScrollY = latestKnownScrollY;
+var items = document.querySelectorAll('.mover');
+var top = (document.body.scrollTop / 1250);
  
  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((currentScrollY / 1250) + (i % 5));
+    var phase = Math.sin(top + (i % 5));
     items[i].style.transform = "translateX(" + 100 * phase + "px)";
   }
 
@@ -543,7 +525,7 @@ if (items.length === 0) {
 }
   
 // runs updatePositions on scroll
-window.addEventListener('scroll', onScroll, false);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
+window.addEventListener('scroll', updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
