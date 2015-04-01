@@ -511,7 +511,7 @@ function onScroll() {
 
 function requestTick() {
   if(!ticking) {
-    requestAnimationFrame(update);
+    requestAnimationFrame(updatePositions);
   }
   ticking = true;
 }
@@ -520,8 +520,6 @@ function updatePositions() {
   frame++;
   ticking = false;
   window.performance.mark("mark_start_frame");
-
-  requestAnimationFrame(updatePositions);
 
   var currentScrollY = latestKnownScrollY;
  
@@ -541,7 +539,7 @@ function updatePositions() {
 }
   
 // runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
+window.addEventListener('scroll', onScroll, false);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
