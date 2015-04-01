@@ -521,7 +521,7 @@ function updatePositions() {
   ticking = false;
   window.performance.mark("mark_start_frame");
 
-  requestAnimationFrame(update);
+  requestAnimationFrame(updatePositions);
 
   var currentScrollY = latestKnownScrollY;
  
