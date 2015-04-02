@@ -507,12 +507,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
 var items = document.querySelectorAll('.mover');
-var topScroll = (document.body.scrollTop / 1250);
+var topScroll = document.body.scrollTop / 1250;
  
  for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(topScroll + (i % 5));
     var left = -items[i].basicLeft + 100 * phase + 'px';
-        items[i].style.transform = "translateX("left") translateZ(0)";
+        items[i].style.transform = "translateX("+left+")";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
