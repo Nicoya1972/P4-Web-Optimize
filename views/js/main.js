@@ -512,7 +512,9 @@ function updatePositions() {
   var scrollTop = document.body.scrollTop / 1250
   for (var i = 0; i < pizzas.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
-    pizzas[i].transform = "translateX( + 100 * phase + 'px')";
+    var left = -items[i].basicLeft + 1000 * phase + 'px';
+        pizzas[i].style.transform = "translateX("+left+") translateZ(0)";
+    
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
