@@ -501,43 +501,18 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-var items = document.getElementsByClassName('mover');
-// Moves the sliding background pizzas based on scroll position
-var items = [],     // Move 'items' var outside of updatePositions() for improved efficiency
-    lastKnownScrollY = 0,
-    ticking = false;
-
-function onScroll() {
-  lastKnownScrollY = window.scrollY;
-  requestTick();
-}
-
-function requestTick() {
-  if(!ticking) {
-    requestAnimationFrame(updatePositions);
-  }
-  ticking = true;
-}
-
-// The following code for sliding background pizzas was pulled from Ilya's demo found at:
-// https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
-
+var pizzas = document.getElementsByClassName("mover");
 // Moves the sliding background pizzas based on scroll position
 function updatePositions() {
-  ticking = false;
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // Only fetch pizzas if we have to
-  if (items.length === 0) {
-    items = document.getElementsByClassName('mover');
-  }
-
-  var currentScrollY = lastKnownScrollY;
-
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((currentScrollY / 1250) + (i % 5));
-    items[i].style.transform = "translateX(" + 100 * phase + "px)";
+  // Andrew: move the scrollTop DOM access out of the for loop, as it only needs to
+  //   be done once.
+  var scrollTop = document.body.scrollTop / 1250
+  for (var i = 0; i < pizzas.length; i++) {
+    var phase = Math.sin(scrollTop + (i % 5));
+    pizzas[i].style.left = pizzas[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -551,7 +526,7 @@ function updatePositions() {
 }
   
 // runs updatePositions on scroll
-window.addEventListener('scroll', onScroll, false);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
+window.addEventListener('scroll', updatePositions);// from http://wilsonpage.co.uk/preventing-layout-thrashing/
 
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
