@@ -456,10 +456,11 @@ var resizePizzas = function(size) {
     //calculates the lenght of that array
     var pizzaLength = randomPizza.length;
     //receives the size from sizeSwitcher and generates the new width
+    var dx = determineDx(randomPizza[i], size);
+    var newwidth = (randomPizza[i].offsetWidth + dx) + 'px';
+    
     for (var i = 0; i < pizzaLength; i++) {
-      var dx = determineDx(randomPizza[i], size);
-      var newwidth = (randomPizza[i].offsetWidth + dx) + 'px';
-      randomPizza[i].style.width = newwidth;
+    randomPizza[i].style.width = newwidth;
     }
   }
 
