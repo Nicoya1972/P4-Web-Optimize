@@ -506,7 +506,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-var items = document.getElementsByClasssName('mover');
+var items = document.getElementsByClassName('mover');
 var topScroll = document.body.scrollTop / 1250;
 var pizzaLength = items.length;
 
