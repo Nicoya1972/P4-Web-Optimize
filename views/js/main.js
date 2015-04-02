@@ -452,7 +452,7 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     //moved dx and newwidth out of loop created new var to simplify the for loop.
-    var elements = document.querySelectorAll(".randomPizzaContainer");
+    var elements = document.getElementByClasssName(".randomPizzaContainer");
     var dx = determineDx(elements[0], size);
     var newwidth = (elements[0].offsetWidth + dx) + 'px';
     
@@ -511,8 +511,7 @@ var topScroll = document.body.scrollTop / 1250;
  
  for (var i = 0; i < items.length; i++) {
     var phase = Math.sin(topScroll + (i % 5));
-    var left = items[i].basicLeft + 100 * phase + 'px';
-        items[i].style.transform = "translateX("+left+")";
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
