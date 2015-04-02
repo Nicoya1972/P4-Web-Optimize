@@ -512,7 +512,7 @@ function updatePositions() {
   var scrollTop = document.body.scrollTop / 1250
   for (var i = 0; i < pizzas.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
-    pizzas[i].style.left = pizzas[i].basicLeft + 100 * phase + 'px';
+    pizzas[i].transform = translateX( + 100 * phase + 'px');
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -533,7 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   //decreased # of pizzas displayed http://www.codecademy.com/glossary/javascript#loops
-  for (var i = 0; i < 32; i++) {
+  for (var i = 0; i < 24; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
