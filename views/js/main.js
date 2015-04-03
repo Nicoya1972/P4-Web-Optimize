@@ -511,8 +511,8 @@ function updatePositions() {
   var scrollTop = document.body.scrollTop / 1250
   for (var i = 0; i < pizzas.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
-    var left = -pizzas[i].basicLeft + 100 * phase + 'px';
-        pizzas[i].style.transform = "translateX("left") translateZ(0)";
+    var left = pizzas[i].basicLeft + 100 * phase + 'px';
+        pizzas[i].style.transform = "translateX("+left+") translateZ(0)";
     
   }
 
