@@ -452,12 +452,11 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     
-    var pizzaContainers = document.getElementsByClassName("randomPizzaContainer");
-    var numPizzaContainers = pizzaContainers.length;
-    var dx = determineDx(pizzaContainers[0], size);
-    var newwidth = (pizzaContainers[0].offsetWidth + dx) + 'px';
+    var pizzaElements = document.getElementsByClassName("randomPizzaContainer");
+    var dx = determineDx(pizzaElements[0], size);
+    var newwidth = (pizzaElements[0].offsetWidth + dx) + 'px';
     
-    for (var i = 0; i < numPizzaContainers; i++) {
+    for (var i = 0; i < pizzaElements.length; i++) {
       pizzaContainers[i].style.width = newwidth;
     }
   }
@@ -507,8 +506,7 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  // Andrew: move the scrollTop DOM access out of the for loop, as it only needs to
-  //   be done once.
+  // moved the scrollTop DOM access out of the for loop, as it only needs to be done once.
   var scrollTop = document.body.scrollTop / 1250
   for (var i = 0; i < pizzas.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
