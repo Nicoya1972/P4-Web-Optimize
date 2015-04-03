@@ -510,7 +510,7 @@ function updatePositions() {
   for (var i = 0; i < pizzas.length; i++) {
     var phase = Math.sin(scrollTop + (i % 5));
     var left = pizzas[i].basicLeft + 1000 * phase + 'px';
-        pizzas[i].style.transform = translateX("+left+") translateZ(0);
+        transform = translateX("+left+") translateZ(0);
     
   }
 
