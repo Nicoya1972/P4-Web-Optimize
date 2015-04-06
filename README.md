@@ -1,8 +1,8 @@
 ## Website Performance Optimization portfolio project
 
-##The Source folder contains the original files.
+The Source folder contains the original files.
 
-##The Production folder contains the files that have been optimized for this project.
+The Production folder contains the files that have been optimized for this project.
 
 #The follwoing are a list of references sue to completethis project:
 
