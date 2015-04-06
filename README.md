@@ -4,7 +4,7 @@ The Source folder contains the original files.
 
 The Production folder contains the files that have been optimized for this project.
 
-#The follwoing are a list of references sue to completethis project:
+The follwoing are a list of references use to completethis project:
 
 #Websites Reference for Image compressions.
 
@@ -19,7 +19,6 @@ http://www.feedthebot.com/tools/css-delivery/
 #Javascript Refernece Websites:
 
 http://www.sebarmeli.com/blog/2010/12/06/best-way-to-loop-through-an-array-in-javascript/
-
 https://css-tricks.com/controlling-css-animations-transitions-javascript/
 
 
@@ -27,8 +26,7 @@ https://css-tricks.com/controlling-css-animations-transitions-javascript/
 
 https://developers.google.com/web/fundamentals/layouts/rwd-fundamentals/
 https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-
-
-interactivity-with-javascript#parser-blocking-vs-asynchronous-javascript
+https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript#parser-blocking-vs-asynchronous-javascript
 https://developers.google.com/web/fundamentals/performance/critical-rendering-path/analyzing-
 
 crp#performance-patterns
