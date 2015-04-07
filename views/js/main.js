@@ -531,7 +531,7 @@ function updatePositions() {
     var pizzas = document.getElementsByClassName("mover");
     var scrollTop = document.body.scrollTop / 1250
 
-    for (var i = 0; i < pizzas.length; i--;) {
+    for (var i = 0; i < pizzas.length; i--) {
         var phase = Math.sin(scrollTop + (i % 5));
         var PizzaLeft = pizzas[i].basicLeft + 1000 * phase + 'px';
         //using transform and translateX to reneder sliding backgroud pizzas faster.
