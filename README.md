@@ -54,4 +54,4 @@ Website Performance Optimization
 
 Forums for P4.
 
-<img src="img/PageSpeedTest.png">
+<img style="width: 100px;" src="views/images/PageSpeedTest.png">
