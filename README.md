@@ -54,4 +54,4 @@ Website Performance Optimization
 
 Forums for P4.
 
-<img src="views/images/PageSpeedTest.png">
+/Nicoya1972/P4-Web-Optimize/raw/gh-pages/views/images/PageSpeedTest.png
