@@ -51,7 +51,7 @@ http://jankfree.org/
 #UDACITY:
 
 Website Performance Optimization 
-
 Forums for P4.
 
-<img src="views/images/PageSpeedTest.png">
+<p><a href="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest-01.png" target="_blank"><img src="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest-01.png" alt="Breakdown Image 11" style="max-width:100%;"></a></p>
+
