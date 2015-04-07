@@ -53,5 +53,5 @@ http://jankfree.org/
 Website Performance Optimization 
 Forums for P4.
 
-<p><a href="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest-01.png" target="_blank"><img src="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest-01.png" alt="Breakdown Image 11" style="max-width:100%;"></a></p>
+<p><a href="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest.png" target="_blank"><img src="/Nicoya1972/P-4-Web-Optimize/blob/gh-pages/views/images/PageSpeedTest.png" alt="PageSpeedTest Image" style="max-width:100%;"></a></p>
 
