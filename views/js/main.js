@@ -536,7 +536,7 @@ function updatePositions() {
         var PizzaLeft = pizzas[i].basicLeft + 1000 * phase + 'px';
         //using transform and translateX to reneder sliding backgroud pizzas faster.
         //css-tricks.com/almanac/properties/t/transform/
-        pizzas[i].style.transform = "translateX(" + PizzaLeft + ") translateZ(0)";
+        pizzas[i].style.transform = "translateX("+PizzaLeft+") translateZ(0)";
 
     }
 
